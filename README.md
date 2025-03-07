@@ -1,6 +1,4 @@
-# Association-between-T2D-pPS-and-Dementia
-Association between T2D pPS and Dementia
-#Compute Overall T2D PRS (Including APOE)
+#1.Compute Overall T2D PRS (Including APOE)
 auto_PRS_calc_v3 \
     -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
     -s <path_to_summary_statistics>/T2D_GWAS_All_Metal_LDSC-CORR_Neff.v2.hg38.txt \
@@ -13,7 +11,7 @@ auto_PRS_calc_v3 \
     --colname_beta Beta \
     --colname_p Pval
 
-#Compute T2D PRS (Excluding APOE rs429358)
+#2.Compute T2D PRS (Excluding APOE rs429358)
 awk '$2 != "rs429358"' <path_to_summary_statistics>/T2D_GWAS_All_Metal_LDSC-CORR_Neff.v2.hg38.txt > T2D_GWAS_noAPOE.txt
 auto_PRS_calc_v3 \
     -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
@@ -27,8 +25,8 @@ auto_PRS_calc_v3 \
     --colname_beta Beta \
     --colname_p Pval
 
-#Specific PRS Computation Commands for 12 Genetic Clusters
-# 1. ALP Negative pPS
+3.Specific PRS Computation Commands for 12 Genetic Clusters
+#3. 1. ALP Negative pPS
 auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
                  -s <path_to_summary_statistics>/ALP_Negative_pPS.txt \
                  -o ALP_Negative \
@@ -36,7 +34,7 @@ auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638r
                  --colname_chr=chr --colname_pos=pos \
                  --colname_ea=EffectAllele --colname_nea=NonEffectAllele \
                  --colname_beta=Beta --colname_p=Pval
-# 2. Beta Cell 1 pPS
+# 3.2. Beta Cell 1 pPS
 auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
                  -s <path_to_summary_statistics>/Beta_Cell_1_pPS.txt \
                  -o Beta_Cell_1 \
@@ -44,7 +42,7 @@ auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638r
                  --colname_chr=chr --colname_pos=pos \
                  --colname_ea=EffectAllele --colname_nea=NonEffectAllele \
                  --colname_beta=Beta --colname_p=Pval
-# 3. Beta Cell 2 pPS
+# 3.3. Beta Cell 2 pPS
 auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
                  -s <path_to_summary_statistics>/Beta_Cell_2_pPS.txt \
                  -o Beta_Cell_2 \
@@ -52,7 +50,7 @@ auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638r
                  --colname_chr=chr --colname_pos=pos \
                  --colname_ea=EffectAllele --colname_nea=NonEffectAllele \
                  --colname_beta=Beta --colname_p=Pval
-# 4. Bilirubin pPS
+#3. 4. Bilirubin pPS
 auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
                  -s <path_to_summary_statistics>/Bilirubin_pPS.txt \
                  -o Bilirubin \
@@ -60,7 +58,7 @@ auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638r
                  --colname_chr=chr --colname_pos=pos \
                  --colname_ea=EffectAllele --colname_nea=NonEffectAllele \
                  --colname_beta=Beta --colname_p=Pval
-# 5. Cholesterol pPS
+#3. 5. Cholesterol pPS
 auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
                  -s <path_to_summary_statistics>/Cholesterol_pPS.txt \
                  -o Cholesterol \
@@ -68,7 +66,7 @@ auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638r
                  --colname_chr=chr --colname_pos=pos \
                  --colname_ea=EffectAllele --colname_nea=NonEffectAllele \
                  --colname_beta=Beta --colname_p=Pval
-# 6. Hyper Insulin pPS
+# 3.6. Hyper Insulin pPS
 auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
                  -s <path_to_summary_statistics>/Hyper_Insulin_pPS.txt \
                  -o Hyper_Insulin \
@@ -76,7 +74,7 @@ auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638r
                  --colname_chr=chr --colname_pos=pos \
                  --colname_ea=EffectAllele --colname_nea=NonEffectAllele \
                  --colname_beta=Beta --colname_p=Pval
-# 7. Lipodystrophy 1 pPS
+# 3.7. Lipodystrophy 1 pPS
 auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
                  -s <path_to_summary_statistics>/Lipodystrophy_1_pPS.txt \
                  -o Lipodystrophy_1 \
@@ -84,7 +82,7 @@ auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638r
                  --colname_chr=chr --colname_pos=pos \
                  --colname_ea=EffectAllele --colname_nea=NonEffectAllele \
                  --colname_beta=Beta --colname_p=Pval
-# 8. Lipodystrophy 2 pPS
+# 3.8. Lipodystrophy 2 pPS
 auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
                  -s <path_to_summary_statistics>/Lipodystrophy_2_pPS.txt \
                  -o Lipodystrophy_2 \
@@ -92,7 +90,7 @@ auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638r
                  --colname_chr=chr --colname_pos=pos \
                  --colname_ea=EffectAllele --colname_nea=NonEffectAllele \
                  --colname_beta=Beta --colname_p=Pval
-# 9. Liver-Lipid pPS
+# 3.9. Liver-Lipid pPS
 auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
                  -s <path_to_summary_statistics>/Liver_Lipid_pPS.txt \
                  -o Liver_Lipid \
@@ -100,7 +98,7 @@ auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638r
                  --colname_chr=chr --colname_pos=pos \
                  --colname_ea=EffectAllele --colname_nea=NonEffectAllele \
                  --colname_beta=Beta --colname_p=Pval
-# 10. Obesity pPS
+# 3.10. Obesity pPS
 auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
                  -s <path_to_summary_statistics>/Obesity_pPS.txt \
                  -o Obesity \
@@ -108,7 +106,7 @@ auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638r
                  --colname_chr=chr --colname_pos=pos \
                  --colname_ea=EffectAllele --colname_nea=NonEffectAllele \
                  --colname_beta=Beta --colname_p=Pval
-# 11. Proinsulin pPS
+# 3.11. Proinsulin pPS
 auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
                  -s <path_to_summary_statistics>/Proinsulin_pPS.txt \
                  -o Proinsulin \
@@ -116,7 +114,7 @@ auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638r
                  --colname_chr=chr --colname_pos=pos \
                  --colname_ea=EffectAllele --colname_nea=NonEffectAllele \
                  --colname_beta=Beta --colname_p=Pval
-# 12. SHBG-LpA pPS
+# 3.12. SHBG-LpA pPS
 auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
                  -s <path_to_summary_statistics>/SHBGLpA_pPS.txt \
                  -o SHBGLpA \
@@ -125,7 +123,7 @@ auto_PRS_calc_v3 -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638r
                  --colname_ea=EffectAllele --colname_nea=NonEffectAllele \
                  --colname_beta=Beta --colname_p=Pval
 
-#Table 1 Association of Polygenic Risk Scores for Type 2 Diabetes With all-cause dementia, Alzheimer's disease, Vascular dementia and Other & unspecified dementia Risk
+#4.Table 1 Association of Polygenic Risk Scores for Type 2 Diabetes With all-cause dementia, Alzheimer's disease, Vascular dementia and Other & unspecified dementia Risk
 library(survival)
 data <- read.csv("data.csv")
 run_cox_model <- function(event_col, prs_col, covariates) {  
@@ -155,7 +153,7 @@ cox_age_sex <- run_cox_model("Other_Dementia", prs_col_non_apoe, adjust_age_sex)
 cox_age_sex_T2D <- run_cox_model("Other_Dementia", prs_col_non_apoe, adjust_age_sex_T2D)  
 
 
-#Table 2 Association between T2D genetic clusters  and Risks of All-cause Dementia, Alzheimer's Disease, Vascular Dementia, and Other/Unspecified Dementia
+#5.Table 2 Association between T2D genetic clusters  and Risks of All-cause Dementia, Alzheimer's Disease, Vascular Dementia, and Other/Unspecified Dementia
 library(survival)
 data <- read.csv("data.csv")
 run_cox_model <- function(event_col, prs_col, covariates) {  
@@ -176,7 +174,7 @@ for (prs in genetic_clusters) {
     }
 }
 
-#Table 3 Associations Between clusters Tertiles for Hyperinsulinemia and SHBGLpA and Risk of Vascular Dementia Across Adjusted Models
+#6.Table 3 Associations Between clusters Tertiles for Hyperinsulinemia and SHBGLpA and Risk of Vascular Dementia Across Adjusted Models
 library(survival)
 data <- read.csv("data.csv")
 data$HyperInsulin_tertile <- cut(data$HyperInsulin_pPS, 
@@ -207,7 +205,7 @@ cox_shbglpa_m3 <- run_cox_model("VD", "SHBGLpA_tertile", model3_cov)
 cox_shbglpa_m4 <- run_cox_model("VD", "SHBGLpA_tertile", model4_cov)
 
 
-#Figure 1： Effect Sizes of Hyper Insulin on Vascular Dementia
+#7.Figure 1： Effect Sizes of Hyper Insulin on Vascular Dementia
 library(ggplot2)
 library(dplyr)
 data <- read.csv("data.csv")
@@ -227,7 +225,7 @@ p <- ggplot(data, aes(x = BETA_CHIDAI, y = P_CHIDAI)) +
   )
 print(p)
 
- #Table 4 Associations Between rs11129735 and rs329118 Genotypes and Risk of Vascular Dementia
+#8. Table 4 Associations Between rs11129735 and rs329118 Genotypes and Risk of Vascular Dementia
 library(survival)
 data <- read.csv("data.csv")
 model1_cov <- c("AGE", "SEX")  
@@ -255,7 +253,7 @@ cox_combined_m1 <- run_cox_model("VD", "Combined_Risk_Alleles", model1_cov)
 cox_combined_m2 <- run_cox_model("VD", "Combined_Risk_Alleles", model2_cov)  
 cox_combined_m4 <- run_cox_model("VD", "Combined_Risk_Alleles", model4_cov)  
 
-#eFigure 2：Distribution of T2D_PRS by Diabetes Status
+#9.eFigure 2：Distribution of T2D_PRS by Diabetes Status
 library(ggplot2)
 data <- read.csv("data.csv")
 p1 <- ggplot(data, aes(x = T2D_PRS, fill = Diabetes_Status)) +
@@ -281,7 +279,7 @@ p2 <- ggplot(data, aes(x = T2D_PRS_no_APOE, fill = Diabetes_Status)) +
 library(gridExtra)
 grid.arrange(p1, p2, ncol = 1)
 
-#eTable 4   Associations Between Type 2 Diabetes Polygenic Risk Score (PRS) and Diabetes Risk
+#10.eTable 4   Associations Between Type 2 Diabetes Polygenic Risk Score (PRS) and Diabetes Risk
 library(dplyr)
 library(broom)
 data <- read.csv("data.csv")
@@ -308,7 +306,7 @@ print(result_t2d_prs_categorical)
 print(result_t2d_prs_no_apoe_continuous)
 print(result_t2d_prs_no_apoe_categorical)
 
-#eTable 5 Baseline Characteristics of Participants by T2D PRS
+#11.eTable 5 Baseline Characteristics of Participants by T2D PRS
 library(tableone)
 df <- read.csv("data.csv")
 df$T2D_PRS_Cat <- factor(df$T2D_PRS_Cat, 
@@ -365,7 +363,7 @@ table1 <- CreateTableOne(
 )
 print(table1, showAllLevels = TRUE)
 
-#eTable 6 Association between T2D genetic clusters  and Risks of All-cause Dementia, Alzheimer's Disease, Vascular Dementia, and Other/Unspecified Dementia
+#12.eTable 6 Association between T2D genetic clusters  and Risks of All-cause Dementia, Alzheimer's Disease, Vascular Dementia, and Other/Unspecified Dementia
 library(survival)
 library(broom)
 library(dplyr)
@@ -417,7 +415,7 @@ for (cluster in genetic_clusters) {
 final_results <- bind_rows(results)
 print(final_results)
 
-#eTable 7 Associations Between clusters Tertiles for Hyperinsulinemia and SHBGLpA and Risk of All-Cause Dementia, Alzheimer’s Disease, Vascular Dementia, and Other/Unspecified Dementia.
+#13.eTable 7 Associations Between clusters Tertiles for Hyperinsulinemia and SHBGLpA and Risk of All-Cause Dementia, Alzheimer’s Disease, Vascular Dementia, and Other/Unspecified Dementia.
 library(survival)
 library(dplyr)
 library(broom)
@@ -457,7 +455,7 @@ for (cluster in genetic_clusters) {
 final_results <- bind_rows(results)
 print(final_results)
 
-#eTable 8 Associations Between clusters Tertiles for Hyperinsulinemia and SHBGLpA and Risk of All-Cause Dementia, Alzheimer’s Disease, Vascular Dementia, and Other/Unspecified Dementia.
+#14.eTable 8 Associations Between clusters Tertiles for Hyperinsulinemia and SHBGLpA and Risk of All-Cause Dementia, Alzheimer’s Disease, Vascular Dementia, and Other/Unspecified Dementia.
 library(survival)
 library(dplyr)
 library(broom)
@@ -498,7 +496,7 @@ for (cluster in genetic_clusters) {
 final_results <- bind_rows(results)
 print(final_results)
 
-#eTable 9: Association of Hyper Insulin Cluster-Specific Genetic Variants with Vascular Dementia Risk
+#15.eTable 9: Association of Hyper Insulin Cluster-Specific Genetic Variants with Vascular Dementia Risk
 auto_PRS_calc_v3 \
     -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
     -s <path_to_summary_statistics>/HyperInsulin_VD_GWAS.txt \
@@ -512,7 +510,7 @@ auto_PRS_calc_v3 \
     --colname_beta=Beta \
 --colname_p=Pval
 
-#eTable 10: Association of SHBG-LpA Cluster-Specific Genetic Variants with Vascular Dementia Risk
+#16.eTable 10: Association of SHBG-LpA Cluster-Specific Genetic Variants with Vascular Dementia Risk
 auto_PRS_calc_v3 \
     -g <path_to_genotype_data>/merged_imputed_info0.3_maf0.01_2638ref \
     -s <path_to_summary_statistics>/SHBGLpA_VD_GWAS.txt \
